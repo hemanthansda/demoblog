@@ -26,11 +26,10 @@
 
 	    <div class="row marketing">
 	    	<% if notice %>
-	     		<p class="notice"><%= notice %></p>
+	     		<p class="alert"><%= notice %></p>
 	     	<% elsif alert %>
 	     		<p class="alert"><%= alert %></p>
-	     	<% end%>
-	   	
+	     	<% end%>	   	
 	   	  <%= yield %>
 	    </div>
 

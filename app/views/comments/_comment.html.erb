@@ -1,0 +1,9 @@
+<div class="comment clearfix">
+		<p ><strong><%= comment.name %></strong></p>
+		<p ><%= comment.body %></p>
+		<p ><%= distance_of_time_in_words_to_now(comment.created_at)  %> ago </p>
+
+	<% if user_signed_in? %>
+		<p><%= link_to 'Delete', [comment.post, comment],  method: :delete, class: "button", data: { confirm: 'Are you sure?' } %></p>
+ 	<% end %>
+</div>
