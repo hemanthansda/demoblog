@@ -6,6 +6,16 @@ gem 'rails', '4.0.2'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 
+
+
+# Use  for bootstrap framework
+gem "less-rails" 
+gem "twitter-bootstrap-rails"
+
+
+# Use device for authication system
+gem 'devise'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 

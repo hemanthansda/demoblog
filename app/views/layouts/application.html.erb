@@ -1,14 +1,46 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Demoblog</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+	<head>
+	  <title>Demoblog</title>
+	  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+	  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+	  <%= csrf_meta_tags %>
+	</head>
 
-<%= yield %>
+	<body>
+	  <div class="container">
+	    <div class="header clearfix">
+	      <nav>
+	        <ul class="nav nav-pills pull-right">
 
-</body>
+						<% if user_signed_in? %>
+							<li role="presentation"><%= link_to "Write Post", new_post_path %></li>
+							<li role="presentation"><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+						<% else %>	
+							<li role="presentation"><%= link_to "Sign In", new_user_session_path %></li>
+						<% end %>	          
+	        </ul>
+	      </nav>
+	      <h3 class="text-muted"><a href="/">My Blog</a></h3>
+	    </div>
+
+	    <div class="row marketing">
+	    	<% if notice %>
+	     		<p class="notice"><%= notice %></p>
+	     	<% elsif alert %>
+	     		<p class="alert"><%= alert %></p>
+	     	<% end%>
+	   	
+	   	  <%= yield %>
+	    </div>
+
+	    <footer class="footer">  </footer>
+
+	  </div> <!-- /container -->
+
+
+
+
+	</body>
+
 </html>
